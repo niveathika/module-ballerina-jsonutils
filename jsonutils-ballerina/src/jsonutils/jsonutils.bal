@@ -64,3 +64,12 @@ isolated function externFromTable(table<record{}> tableValue) returns json = @ja
     name: "fromTable",
     'class: "org.ballerinalang.stdlib.jsonutils.FromTable"
 } external;
+
+public isolated function fromStream(stream<record{}, error> streamValue) returns json {
+    return externFromStream(streamValue);
+}
+
+isolated function externFromStream(stream<record{}, error> streamValue) returns json = @java:Method {
+    name: "fromStream",
+    'class: "org.ballerinalang.stdlib.jsonutils.FromStream"
+} external;
